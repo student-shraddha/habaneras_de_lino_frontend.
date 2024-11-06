@@ -19,12 +19,13 @@ fi
 echo "Stopping any existing PM2 instances..."
 pm2 stop  new repo|| true
 pm2 delete new repo|| true
+# Update npm to reduce deprecated warnings
+echo "Updating npm to the latest version..."
+npm install -g npm@latest
 
-# Install project dependencies
+# Install dependencies efficiently
 echo "Installing project dependencies..."
-npm ci
-cp -r node_modules /home/ec2-user/.cache/node_modules
-
+npm ci --no-optional
 echo "AfterInstall script executed successfully."
 
 # Build the Next.js application
