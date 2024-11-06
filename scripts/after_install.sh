@@ -17,8 +17,9 @@ fi
 
 # Stop any existing instances to avoid duplicates
 echo "Stopping any existing PM2 instances..."
-pm2 stop  new repo|| true
-pm2 delete new repo|| true
+pm2 stop "new repo" || true
+pm2 delete "new repo" || true
+
 # Update npm to reduce deprecated warnings
 echo "Updating npm to the latest version..."
 npm install -g npm@latest
