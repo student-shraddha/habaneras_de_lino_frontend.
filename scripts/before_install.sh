@@ -1,10 +1,19 @@
 #!/bin/bash
 # before_install.sh
 
-# Update and install necessary dependencies
+# Update packages
 sudo yum update -y
+
+# Install Node.js and npm
 sudo yum install -y nodejs npm
 
-# Navigate to the application directory and install dependencies
+# Ensure the application directory exists
+mkdir -p /home/ec2-user/app
 cd /home/ec2-user/app || exit
-npm install
+
+# Install necessary dependencies if package.json exists
+if [ -f "package.json" ]; then
+  npm install
+fi
+
+echo "BeforeInstall script executed successfully."
