@@ -2,7 +2,7 @@
 # after_install.sh
 
 # Example: Set permissions for the application files
-sudo chmod -R 755 /home/ec2-user/habaneras_de_lino_frontend
+sudo chmod -R 755 /home/ec2-user/app
 
 # Example: Install any additional dependencies
 cd /home/ec2-user/app || exit
