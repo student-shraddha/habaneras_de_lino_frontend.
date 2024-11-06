@@ -22,7 +22,10 @@ pm2 delete new repo|| true
 
 # Install project dependencies
 echo "Installing project dependencies..."
-npm install
+npm ci
+cp -r node_modules /home/ec2-user/.cache/node_modules
+
+echo "AfterInstall script executed successfully."
 
 # Build the Next.js application
 echo "Building the application..."
